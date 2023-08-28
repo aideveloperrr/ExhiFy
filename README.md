@@ -1,8 +1,5 @@
 # ExhiFy
 
-- ExhiFy has been downloaded ![ExhiFy Downloads](https://img.shields.io/github/downloads/aideveloperrr/ExhiFy/total) times.
-
-
 # Spotify Account Generator
 
 This Python script is designed for educational purposes and demonstrates how to create Spotify accounts programmatically using the `requests` library. It generates random but realistic-looking email addresses, usernames with three random numbers at the end, and passwords. The generated account details are then saved to a file named `accs.txt`. The script runs indefinitely, creating accounts with a 3-second gap between each account generation.
