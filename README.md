@@ -11,15 +11,6 @@ This Python script is designed for educational purposes and demonstrates how to 
 - Runs continuously until manually closed, creating accounts at a 3-second interval.
 -  Keeps track of the number of accounts created and displays the count in the console.
 
-## How to Use
-
-1. Make sure you have Python installed on your system.
-
-2. Install the `requests` library if you haven't already:
-
-   ```bash
-   pip install requests
-
 
 ## Disclaimer
 
