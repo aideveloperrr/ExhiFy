@@ -4,8 +4,13 @@ import time
 import re
 from datetime import datetime
 from colorama import init, Fore
+import os
+import platform
 
 init(autoreset=True)
+
+num_times = input("Number of accounts to (try) to generate: ")
+num_times = int(num_times)
 
 ascii_art = '''
   ______      _     _ ________     __
@@ -16,7 +21,7 @@ ascii_art = '''
  |______/_/\_\_| |_|_|_|       |_|
 '''
 
-throttle_interval = 3
+throttle_interval = random.randint(1, 3)
 min_password_length = 8
 
 # Function to generate a random email address
@@ -147,9 +152,42 @@ time.sleep(5)
 
 account_count = 0
 
+def count_lines_and_rename_file(filename):
+    try:
+        # Open the file in read mode
+        with open(filename, 'r') as file:
+            # Read all lines into a list
+            lines = file.readlines()
+
+        # Count the number of lines
+        line_count = len(lines)
+
+        # Rename the file to match the line count
+        new_filename = f"{line_count}_lines.txt"
+        os.rename(filename, new_filename)
+
+        return f"File '{filename}' has {line_count} lines. Renamed to '{new_filename}'."
+
+    except FileNotFoundError:
+        return "File not found."
+
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
+
+def clear_console():
+    system = platform.system()
+    if system == "Windows":
+        os.system("cls")  # For Windows
+    else:
+        os.system("clear")  # For macOS and Linux
+
 
 # Run the script indefinitely with a 3-second gap between each account creation
-while True:
+for i in range(num_times):
     create_and_save_spotify_account()
     account_count += 1
-    print(f"Accounts created: {account_count}")
+
+clear_console()
+time.sleep(5)
+print(f"Accounts created: {account_count}")
+result = count_lines_and_rename_file("accs.txt")
